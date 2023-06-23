@@ -1,19 +1,26 @@
-#include "function_pointers.h"
+#include "variadic_functions.h"
 
 /**
- * array_iterator - executes a function given as a
- * parameter on each element of an array.
- * @array: input integer array.
- * @size: size of the array.
- * @action: pointer to the function.
+ * print_numbers - prints numbers.
+ * @separator: string to be printed between numbers.
+ * @n: number of integers passed to the function.
  *
  * Return: no return.
  */
-void array_iterator(int *array, size_t size, void (*action)(int))
+void print_numbers(const char *separator, const unsigned int n, ...)
 {
+	va_list valist;
 	unsigned int i;
 
-	if (array && action)
-		for (i = 0; i < size; i++)
-			acti1-print_numbers.con(array[i]);
+	va_start(valist, n);
+
+	for (i = 0; i < n; i++)
+	{
+		printf("%d", va_arg(valist, int));
+		if (separator && i < n - 1)
+			printf("%s", separator);
+	}
+
+	printf("\n");
+	va_end(valist);
 }
